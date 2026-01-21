@@ -1,0 +1,21 @@
+{
+  "Group": "Ruski",
+  "Name": "hyServer",
+  "Version": "1.0.0",
+  "Description": "Plugin to move along servers",
+  "Main": "me.ruski.Plugin",
+  "Authors": [
+    {
+      "Name": "Ruski",
+      "Email": "none",
+      "Url": "https://github.com/ruskiidev"
+    }
+  ],
+  "Website": "https://github.com/ruskiidev/hyServer",
+  "ServerVersion": ">=0.0.1",
+  "Dependencies": {},
+  "OptionalDependencies": {},
+  "LoadBefore": {},
+  "DisabledByDefault": false,
+  "IncludesAssetPack": false
+}
