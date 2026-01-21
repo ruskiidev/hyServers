@@ -18,8 +18,7 @@ import java.util.Arrays;
 
 public class PlayerEvents {
 
-    protected static PluginConfiguration cfg = Plugin.getInstance().getPluginConfig().get();
-    protected static Server currentServer = Arrays.stream(cfg.getServers()).filter(s -> s.getName().equals(cfg.getCurrentServer())).findFirst().orElse(null);
+    private static final Server currentServer = Plugin.getInstance().getServerManager().getCurrentServer();
 
     public static void onReady(PlayerReadyEvent event) {
         Ref<EntityStore> playerRef = event.getPlayerRef();
@@ -42,9 +41,9 @@ public class PlayerEvents {
     }
 
     public static void onConnected(PlayerConnectEvent event) {
+        if (currentServer == null) {return;}
         World world = Universe.get().getWorld(currentServer.getSpawnWorld());
         if (world == null) {return;}
-        if (currentServer == null) {return;}
 
         if (currentServer.isLobby() | currentServer.isForceSpawnOnEnter()) {
             event.setWorld(world);

@@ -53,8 +53,10 @@ public class ServersManager {
         if (ServerManager.get().getLocalOrPublicAddress() != null) {
             InetSocketAddress serverRealAddress = ServerManager.get().getLocalOrPublicAddress();
 
-            Logger.getGlobal().log(Level.WARNING, "Server ip : " + serverRealAddress.getAddress().getHostAddress() + ":" + serverRealAddress.getPort());
-            Logger.getGlobal().log(Level.WARNING, "Current Server : " + currentServer.getIpAddress() + ":" + currentServer.getPort());
+            Logger.getGlobal().log(Level.WARNING, "config.servers.{selected-server}.ip&port : "
+                    + serverRealAddress.getAddress().getHostAddress() + ":" + serverRealAddress.getPort());
+            Logger.getGlobal().log(Level.WARNING, "Current Server : " + currentServer.getIpAddress() + ":"
+                    + currentServer.getPort());
             return serverRealAddress.getAddress().getHostAddress().equals(currentServer.getIpAddress()) &&
                     serverRealAddress.getPort() == currentServer.getPort();
         }
